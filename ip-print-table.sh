@@ -23,6 +23,9 @@ END {
     print max1, max2, max3, max4;
 }'))
 
+# Print an empty line before the table
+echo
+
 # Print the header with dynamic width and 4 spaces between columns
 printf "%-${max_lengths[0]}s    %-${max_lengths[1]}s    %-${max_lengths[2]}s    %-${max_lengths[3]}s\n" "Interface" "IP Address" "Subnet Mask" "Broadcast"
 printf "%-${max_lengths[0]}s    %-${max_lengths[1]}s    %-${max_lengths[2]}s    %-${max_lengths[3]}s\n" "---------" "----------" "-----------" "---------"
@@ -34,3 +37,6 @@ echo "$data" | awk -v max1=${max_lengths[0]} -v max2=${max_lengths[1]} -v max3=$
     # and separated by 4 spaces between each column
     printf "%-"max1"s    %-"max2"s    %-"max3"s    %-"max4"s\n", $1, $2, $3, $4;
 }'
+
+# Print an empty line after the table
+echo
